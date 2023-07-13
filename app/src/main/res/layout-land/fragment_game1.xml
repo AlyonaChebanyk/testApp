@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter_slot1"
+            type="com.example.testapp.adapters.SlotAdapter" />
+
+        <variable
+            name="adapter_slot2"
+            type="com.example.testapp.adapters.SlotAdapter" />
+
+        <variable
+            name="adapter_slot3"
+            type="com.example.testapp.adapters.SlotAdapter" />
+
+        <variable
+            name="adapter_slot4"
+            type="com.example.testapp.adapters.SlotAdapter" />
+
+        <variable
+            name="adapter_slot5"
+            type="com.example.testapp.adapters.SlotAdapter" />
+
+        <variable
+            name="myBalance"
+            type="androidx.databinding.ObservableInt" />
+
+        <variable
+            name="myWin"
+            type="androidx.databinding.ObservableInt" />
+
+        <variable
+            name="myBid"
+            type="androidx.databinding.ObservableInt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_land"
+        tools:context=".game.Game1Fragment">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ripple_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/balance_panel"
+            android:layout_marginStart="120dp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="40dp"
+            android:src="@drawable/balance_panel"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/Balance"
+            android:id="@+id/totalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Total"
+            app:layout_constraintEnd_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/balanceTextView"
+            style="@style/Balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(myBalance)}"
+            tools:text="0"
+            android:textSize="20sp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/totalTextView" />
+
+        <TextView
+            style="@style/Balance"
+            android:id="@+id/winTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Win"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+        <TextView
+            android:id="@+id/winValueTextView"
+            style="@style/Balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(myWin)}"
+            tools:text="0"
+            android:textSize="20sp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/winTextView" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="320dp"
+            android:layout_height="260dp"
+            android:src="@drawable/reel_game1"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/slot1RecyclerView"
+            android:layout_width="45dp"
+            android:layout_height="176dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="37dp"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            tools:listitem="@layout/slot_item_game1_land"
+            app:layoutManager="com.example.testapp.custom_view.MyLinearLayoutManager"
+            app:setAdapter="@{adapter_slot1}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/slot2RecyclerView"
+            android:layout_width="45dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="37dp"
+            app:layout_constraintStart_toEndOf="@+id/slot1RecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            tools:listitem="@layout/slot_item_game1_land"
+            app:layoutManager="com.example.testapp.custom_view.MyLinearLayoutManager"
+            app:setAdapter="@{adapter_slot2}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/slot3RecyclerView"
+            android:layout_width="45dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="37dp"
+            app:layout_constraintStart_toEndOf="@+id/slot2RecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            tools:listitem="@layout/slot_item_game1_land"
+            app:layoutManager="com.example.testapp.custom_view.MyLinearLayoutManager"
+            app:setAdapter="@{adapter_slot3}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/slot4RecyclerView"
+            android:layout_width="45dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="37dp"
+            app:layout_constraintStart_toEndOf="@+id/slot3RecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            tools:listitem="@layout/slot_item_game1_land"
+            app:layoutManager="com.example.testapp.custom_view.MyLinearLayoutManager"
+            app:setAdapter="@{adapter_slot4}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/slot5RecyclerView"
+            android:layout_width="45dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="37dp"
+            app:layout_constraintStart_toEndOf="@+id/slot4RecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            tools:listitem="@layout/slot_item_game1_land"
+            app:layoutManager="com.example.testapp.custom_view.MyLinearLayoutManager"
+            app:setAdapter="@{adapter_slot5}"/>
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:src="@drawable/balance_panel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35"/>
+
+        <TextView
+            style="@style/Balance"
+            android:id="@+id/bidTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(myBid)}"
+            tools:text="10"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+        <ImageButton
+            android:id="@+id/plusButton"
+            style="@style/ButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+        <TextView
+            android:id="@+id/plusTextView"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="+"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="@+id/plusButton"
+            app:layout_constraintEnd_toEndOf="@+id/plusButton"
+            app:layout_constraintStart_toStartOf="@+id/plusButton"
+            app:layout_constraintTop_toTopOf="@+id/plusButton" />
+
+        <ImageButton
+            android:id="@+id/minusButton"
+            style="@style/ButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView9"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"/>
+
+        <TextView
+            android:id="@+id/minusTextView"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="-"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="@+id/minusButton"
+            app:layout_constraintEnd_toEndOf="@+id/minusButton"
+            app:layout_constraintStart_toStartOf="@+id/minusButton"
+            app:layout_constraintTop_toTopOf="@+id/minusButton" />
+
+        <ImageButton
+            android:id="@+id/playButton"
+            style="@style/ButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="110dp"
+            android:background="@drawable/button_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/plusButton" />
+
+        <TextView
+            android:id="@+id/spinTextView"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SPIN"
+            app:layout_constraintBottom_toBottomOf="@id/playButton"
+            app:layout_constraintEnd_toEndOf="@id/playButton"
+            app:layout_constraintStart_toStartOf="@id/playButton"
+            app:layout_constraintTop_toTopOf="@id/playButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myBid"
+            type="androidx.databinding.ObservableInt" />
+        <variable
+            name="myBalance"
+            type="androidx.databinding.ObservableInt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bonus_game_background"
+        tools:context=".game.BonusGameFragment">
+
+        <TextView
+            android:id="@+id/bonusGameTextView"
+            style="@style/TitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="45dp"
+            android:text="BONUS GAME"
+            android:textAlignment="center"
+            android:textColor="@color/burgundy"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/balance_panel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bonusGameTextView" />
+
+        <TextView
+            style="@style/Balance"
+            android:id="@+id/totalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Total"
+            app:layout_constraintEnd_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/balanceTextView"
+            style="@style/Balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(myBalance)}"
+            tools:text="0"
+            android:textSize="20sp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/totalTextView" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ripple_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cardOneFrontalImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="180dp"
+            app:layout_constraintEnd_toStartOf="@+id/cardTwoFrontalImageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cardTwoFrontalImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="180dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardOneFrontalImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cardOneImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/bonus_game_card"
+            app:layout_constraintEnd_toStartOf="@+id/cardTwoImageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cardTwoImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/bonus_game_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardOneImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cardThreeFrontalImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/cardFourFrontalImageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardOneImageView" />
+
+        <ImageView
+            android:id="@+id/cardFourFrontalImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardThreeFrontalImageView"
+            app:layout_constraintTop_toBottomOf="@+id/cardTwoImageView" />
+
+        <ImageView
+            android:id="@+id/cardThreeImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bonus_game_card"
+            app:layout_constraintEnd_toStartOf="@+id/cardFourImageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardOneImageView" />
+
+        <ImageView
+            android:id="@+id/cardFourImageView"
+            android:layout_width="130dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bonus_game_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardThreeImageView"
+            app:layout_constraintTop_toBottomOf="@+id/cardTwoImageView" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/balance_panel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardFourImageView" />
+
+        <TextView
+            android:id="@+id/bidTextView"
+            style="@style/Balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(myBid)}"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9"
+            tools:text="10" />
+
+        <ImageButton
+            android:id="@+id/plusButton"
+            style="@style/ButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+        <TextView
+            android:id="@+id/plusTextView"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="+"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="@+id/plusButton"
+            app:layout_constraintEnd_toEndOf="@+id/plusButton"
+            app:layout_constraintStart_toStartOf="@+id/plusButton"
+            app:layout_constraintTop_toTopOf="@+id/plusButton" />
+
+        <ImageButton
+            android:id="@+id/minusButton"
+            style="@style/ButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+        <TextView
+            android:id="@+id/minusTextView"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="-"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="@+id/minusButton"
+            app:layout_constraintEnd_toEndOf="@+id/minusButton"
+            app:layout_constraintStart_toStartOf="@+id/minusButton"
+            app:layout_constraintTop_toTopOf="@+id/minusButton" />
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/playButton"-->
+<!--            style="@style/SingInButtonStyle"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="110dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView9"-->
+<!--            app:layout_constraintVertical_bias="0.4" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/playTextView"-->
+<!--            style="@style/ButtonText"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="PLAY"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/playButton"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/playButton"-->
+<!--            app:layout_constraintStart_toStartOf="@id/playButton"-->
+<!--            app:layout_constraintTop_toTopOf="@id/playButton" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

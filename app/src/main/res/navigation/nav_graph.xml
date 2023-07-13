@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/chooseGameFragment"
+        android:name="com.example.testapp.game.ChooseGameFragment"
+        android:label="fragment_choose_game"
+        tools:layout="@layout/fragment_choose_game" >
+        <action
+            android:id="@+id/action_chooseGameFragment_to_game1Fragment"
+            app:destination="@id/game1Fragment" />
+        <action
+            android:id="@+id/action_chooseGameFragment_to_game2Fragment"
+            app:destination="@id/game2Fragment" />
+        <action
+            android:id="@+id/action_chooseGameFragment_to_bonusGameFragment"
+            app:destination="@id/bonusGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/game1Fragment"
+        android:name="com.example.testapp.game.Game1Fragment"
+        android:label="fragment_game1"
+        tools:layout="@layout/fragment_game1" >
+        <action
+            android:id="@+id/action_game1Fragment_to_chooseGameFragment"
+            app:destination="@id/chooseGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/game2Fragment"
+        android:name="com.example.testapp.game.Game2Fragment"
+        android:label="fragment_game2"
+        tools:layout="@layout/fragment_game2" >
+        <action
+            android:id="@+id/action_game2Fragment_to_chooseGameFragment"
+            app:destination="@id/chooseGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bonusGameFragment"
+        android:name="com.example.testapp.game.BonusGameFragment"
+        android:label="fragment_bonus_game"
+        tools:layout="@layout/fragment_bonus_game" >
+        <action
+            android:id="@+id/action_bonusGameFragment_to_chooseGameFragment"
+            app:destination="@id/chooseGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.testapp.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_chooseGameFragment"
+            app:destination="@id/chooseGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.testapp.WebViewFragment"
+        android:label="WebViewFragment" />
+</navigation>
