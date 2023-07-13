@@ -70,7 +70,7 @@ class SplashFragment : Fragment(){
                             }
                         }
                 } else {
-                    status = remoteConfig.getBoolean("status")
+                    status = sharedPref.getBoolean("status", true)
                     if (status) {
                         findNavController().navigate(
                             R.id.action_splashFragment_to_webViewFragment,
